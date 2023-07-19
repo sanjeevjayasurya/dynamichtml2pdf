@@ -1,7 +1,6 @@
 import * as fs from "fs";
 import * as handlebars from "handlebars";
 import * as puppeteer from "puppeteer";
-import axios, { AxiosResponse } from "axios";
 import path from "path";
 
 export class HTMLtoPDFConverter {
@@ -12,10 +11,9 @@ export class HTMLtoPDFConverter {
     try {
       // Read the HTML template file
       const templateContent = fs.readFileSync(
-        path.resolve(__dirname, templatePath),
+        path.resolve(templatePath),
         "utf8"
       );
-
       // Compile the Handlebars template
       const compiledTemplate = handlebars.compile(templateContent);
 
