@@ -5,14 +5,6 @@ import axios, { AxiosResponse } from "axios";
 import path from "path";
 
 export class HTMLtoPDFConverter {
-  private apiKey: string;
-  private apiUrl: string;
-
-  constructor(apiKey: string, apiUrl: string) {
-    this.apiKey = apiKey;
-    this.apiUrl = apiUrl;
-  }
-
   public async convertHTMLtoPDF(
     templatePath: string,
     variableData: Record<string, any>
@@ -40,21 +32,6 @@ export class HTMLtoPDFConverter {
       return pdfBuffer;
     } catch (error: any) {
       throw new Error(`Conversion failed: ${error.message}`);
-    }
-  }
-
-  public async generatePDFFromURL(url: string): Promise<Buffer> {
-    try {
-      const response: AxiosResponse = await axios.get(url, {
-        responseType: "arraybuffer",
-        // headers: {
-        //   Authorization: `Bearer ${this.apiKey}`,
-        // },
-      });
-
-      return Buffer.from(response.data, "binary");
-    } catch (error: any) {
-      throw new Error(`PDF generation from URL failed: ${error.message}`);
     }
   }
 }
