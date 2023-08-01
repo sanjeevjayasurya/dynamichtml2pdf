@@ -5,7 +5,7 @@ import path from "path";
 
 export class HTMLtoPDFConverter {
   public async convertHTMLtoPDF(
-    templatePath: string,
+    templatePath: string,   
     variableData: Record<string, any>
   ): Promise<Buffer> {
     try {

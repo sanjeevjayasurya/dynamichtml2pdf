@@ -7,10 +7,13 @@ const converter = new HTMLtoPDFConverter();
 
 // Example usage: Convert HTML template to PDF
 converter
-  .convertHTMLtoPDF(path.resolve(__dirname, "./templates/template.html"), {
-    name: "John Doe",
-    age: 30,
-  })
+  .convertHTMLtoPDF(
+    path.resolve(__dirname, "./templates/template.html"),
+    {
+      name: "John Doe",
+      age: 30,
+    },
+  )
   .then((pdfBuffer: Buffer) => {
     // Handle the generated PDF buffer
     fs.writeFileSync(path.resolve(__dirname, "output.pdf"), pdfBuffer);
